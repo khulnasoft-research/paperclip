@@ -1,0 +1,25 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "project": "paperclip",
+  "framework": "vite",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "ui/dist",
+  "installCommand": "pnpm install",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" }
+  ],
+  "functions": {
+    "api/index.ts": {
+      "runtime": "@vercel/node@4",
+      "maxDuration": 30,
+      "memory": 512
+    }
+  },
+  "env": {
+    "SERVE_UI": "false",
+    "PAPERCLIP_DEPLOYMENT_MODE": "authenticated",
+    "PAPERCLIP_DEPLOYMENT_EXPOSURE": "public",
+    "PAPERCLIP_MIGRATION_AUTO_APPLY": "true"
+  },
+  "ignoreCommand": "npx turbo-ignore"
+}

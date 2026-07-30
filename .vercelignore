@@ -1,0 +1,15 @@
+node_modules
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+__tests__
+__snapshots__
+storybook
+storybook-static
+data
+patches
+scripts
+tests
+vitest*
+tsconfig*.json
