@@ -8,8 +8,6 @@ __snapshots__
 storybook
 storybook-static
 data
-patches
-scripts
 tests
 vitest*
 tsconfig*.json

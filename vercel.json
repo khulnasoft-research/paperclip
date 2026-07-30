@@ -4,7 +4,7 @@
   "framework": "vite",
   "buildCommand": "pnpm build",
   "outputDirectory": "ui/dist",
-  "installCommand": "pnpm install",
+  "installCommand": "pnpm install --no-frozen-lockfile",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api" }
   ],
