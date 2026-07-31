@@ -10,4 +10,3 @@ storybook-static
 data
 tests
 vitest*
-tsconfig*.json
