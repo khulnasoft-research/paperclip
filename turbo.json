@@ -1,0 +1,22 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "env": ["VERCEL"],
+      "outputs": [".next/**", "!.next/cache/**", ".vercel/output/**", "dist/**"]
+    },
+    "dev": {
+      "cache": false,
+      "interactive": true
+    },
+    "test": {
+      "outputs": ["coverage/**"],
+      "cache": false
+    },
+    "typecheck": {
+      "cache": false
+    }
+  },
+  "globalDependencies": ["**/.env.development.local", "**/.env"]
+}
