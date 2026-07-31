@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-TSC="node node_modules/typescript/bin/tsc"
 ROOT="$PWD"
 
+# Run preflight checks for workspace links
+pnpm run preflight:workspace-links
+
 # Build TypeScript packages in dependency order
-"$TSC" -p "$ROOT/packages/shared/tsconfig.json"
-"$TSC" -p "$ROOT/packages/db/tsconfig.json"
-"$TSC" -p "$ROOT/packages/adapter-utils/tsconfig.json"
-"$TSC" -p "$ROOT/server/tsconfig.json"
+# tsc is available via pnpm's bin resolution
+cd "$ROOT/packages/shared" && tsc && cd "$ROOT"
+cd "$ROOT/packages/db" && tsc && cd "$ROOT"
+cd "$ROOT/packages/adapter-utils" && tsc && cd "$ROOT"
+cd "$ROOT/server" && tsc && cd "$ROOT"
 
 # Build UI with Vite
-pnpm --filter @paperclipai/ui build
+cd "$ROOT/ui" && pnpm run build && cd "$ROOT"
